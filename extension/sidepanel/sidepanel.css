@@ -1,0 +1,503 @@
+:root {
+  --bg-dark: #0B0F19;
+  --bg-card: #151D30;
+  --bg-card-sub: #1E293B;
+  --bg-input: #1E293B;
+  --primary: #6366F1;
+  --primary-hover: #4F46E5;
+  --accent: #8B5CF6;
+  --text-main: #F8FAFC;
+  --text-muted: #94A3B8;
+  --border: rgba(255, 255, 255, 0.08);
+  --success: #10B981;
+  --warning: #F59E0B;
+  --danger: #EF4444;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+}
+
+body {
+  background-color: var(--bg-dark);
+  color: var(--text-main);
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.sidepanel-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 16px;
+  gap: 12px;
+  overflow-y: auto;
+}
+
+/* Header */
+.sp-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 10px;
+}
+
+.sp-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.sp-logo {
+  font-size: 24px;
+}
+
+.sp-title {
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.sp-tagline {
+  font-size: 11px;
+  color: var(--text-muted);
+}
+
+.sp-icon-btn {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid var(--border);
+  color: var(--text-main);
+  font-size: 16px;
+  padding: 6px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.sp-icon-btn:hover {
+  background: rgba(255, 255, 255, 0.16);
+}
+
+/* Tabs */
+.sp-tabs {
+  display: flex;
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 10px;
+  padding: 3px;
+  gap: 4px;
+}
+
+.sp-tab {
+  flex: 1;
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  font-size: 12px;
+  font-weight: 600;
+  padding: 7px 4px;
+  border-radius: 7px;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-align: center;
+}
+
+.sp-tab:hover {
+  color: var(--text-main);
+}
+
+.sp-tab.active {
+  background: var(--primary);
+  color: #FFFFFF;
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.35);
+}
+
+/* Content Panels */
+.sp-tab-content {
+  display: none;
+  flex-direction: column;
+  gap: 12px;
+  flex: 1;
+  overflow-y: auto;
+}
+
+.sp-tab-content.active {
+  display: flex;
+}
+
+/* Cards */
+.sp-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.sp-badge-row {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.sp-category-tag {
+  background: rgba(99, 102, 241, 0.2);
+  color: #A5B4FC;
+  padding: 3px 10px;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.sp-band-tag {
+  background: rgba(16, 185, 129, 0.15);
+  color: var(--success);
+  padding: 3px 10px;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.sp-video-title {
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.sp-video-channel {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+/* Score Hero */
+.sp-score-hero {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: rgba(255, 255, 255, 0.03);
+  padding: 12px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+}
+
+.sp-score-circle {
+  width: 74px;
+  height: 74px;
+  border-radius: 50%;
+  border: 3px solid var(--primary);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: rgba(99, 102, 241, 0.1);
+  box-shadow: 0 0 16px rgba(99, 102, 241, 0.25);
+}
+
+.sp-score-num {
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--text-main);
+}
+
+.sp-score-label {
+  font-size: 7px;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+}
+
+.sp-score-meta {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.sp-meta-item {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+}
+
+.sp-meta-label {
+  color: var(--text-muted);
+}
+
+.sp-section-box {
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 10px;
+  padding: 10px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.sp-box-title {
+  font-size: 12px;
+  font-weight: 700;
+  color: #CBD5E1;
+}
+
+.sp-box-text {
+  font-size: 12px;
+  color: var(--text-muted);
+  line-height: 1.4;
+}
+
+.sp-takeaways {
+  font-size: 12px;
+  color: #E2E8F0;
+  padding-left: 18px;
+  line-height: 1.5;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+/* Chat Tab */
+.chat-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  gap: 8px;
+}
+
+.quick-chips-scroll {
+  display: flex;
+  gap: 6px;
+  overflow-x: auto;
+  padding-bottom: 4px;
+  scrollbar-width: thin;
+}
+
+.chip-btn {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--border);
+  color: #CBD5E1;
+  font-size: 11px;
+  padding: 5px 10px;
+  border-radius: 9999px;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.chip-btn:hover {
+  background: rgba(99, 102, 241, 0.2);
+  border-color: var(--primary);
+  color: #FFFFFF;
+}
+
+.chat-messages {
+  flex: 1;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 12px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-height: 280px;
+  max-height: 380px;
+}
+
+.chat-bubble {
+  padding: 10px 12px;
+  border-radius: 12px;
+  font-size: 12.5px;
+  line-height: 1.45;
+  max-width: 90%;
+  word-break: break-word;
+}
+
+.user-bubble {
+  align-self: flex-end;
+  background: var(--primary);
+  color: #FFFFFF;
+  border-bottom-right-radius: 2px;
+}
+
+.bot-bubble {
+  align-self: flex-start;
+  background: var(--bg-card-sub);
+  color: #E2E8F0;
+  border: 1px solid var(--border);
+  border-bottom-left-radius: 2px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.verdict-tag {
+  display: inline-block;
+  font-size: 10.5px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 4px;
+  text-transform: uppercase;
+}
+
+.verdict-recommended { background: rgba(16, 185, 129, 0.2); color: #10B981; }
+.verdict-neutral { background: rgba(245, 158, 11, 0.2); color: #F59E0B; }
+.verdict-skip { background: rgba(239, 68, 68, 0.2); color: #EF4444; }
+
+.chat-input-row {
+  display: flex;
+  gap: 8px;
+}
+
+.chat-input {
+  flex: 1;
+  background: var(--bg-input);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 9px 12px;
+  color: var(--text-main);
+  font-size: 12.5px;
+  outline: none;
+}
+
+.chat-input:focus {
+  border-color: var(--primary);
+}
+
+.chat-send-btn {
+  background: var(--primary);
+  border: none;
+  color: white;
+  width: 38px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.2s;
+}
+
+.chat-send-btn:hover {
+  background: var(--primary-hover);
+}
+
+/* Wellbeing Tab */
+.sp-card-heading {
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.sp-card-header-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.sp-total-pill {
+  font-size: 11px;
+  font-weight: 600;
+  color: #38BDF8;
+  background: rgba(56, 189, 248, 0.12);
+  padding: 2px 8px;
+  border-radius: 6px;
+}
+
+.sp-intent-box {
+  display: flex;
+  gap: 8px;
+}
+
+.sp-input {
+  flex: 1;
+  background: var(--bg-input);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 8px 10px;
+  color: var(--text-main);
+  font-size: 12px;
+  outline: none;
+}
+
+.sp-input:focus {
+  border-color: var(--primary);
+}
+
+.sp-btn {
+  padding: 8px 14px;
+  border-radius: 8px;
+  border: none;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.sp-btn-primary {
+  background: var(--primary);
+  color: white;
+}
+
+.sp-btn-primary:hover {
+  background: var(--primary-hover);
+}
+
+.current-intent-badge {
+  font-size: 11.5px;
+  color: var(--text-muted);
+}
+
+.current-intent-badge strong {
+  color: #A5B4FC;
+}
+
+.sp-meters-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.sp-meter-row {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.sp-meter-header {
+  display: flex;
+  justify-content: space-between;
+  font-size: 11.5px;
+}
+
+.sp-track {
+  height: 6px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 9999px;
+  overflow: hidden;
+}
+
+.sp-bar {
+  height: 100%;
+  border-radius: 9999px;
+}
+
+/* Settings Tab */
+.setting-group {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.setting-label {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.save-status {
+  font-size: 11px;
+  color: var(--success);
+  font-weight: 600;
+}

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>YouTubeWise</title>
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+  <div class="popup-container">
+    <!-- Header -->
+    <header class="header">
+      <div class="brand">
+        <div class="brand-icon">🧠</div>
+        <div>
+          <h1 class="title">YouTubeWise</h1>
+          <p class="subtitle">AI Content Intelligence</p>
+        </div>
+      </div>
+      <div class="status-badge" id="backend-status">Online</div>
+    </header>
+
+    <!-- Active Video Card -->
+    <section class="card video-card" id="video-card">
+      <div class="video-header">
+        <span class="category-tag" id="video-category">Detecting...</span>
+        <div class="score-pill" id="score-pill">--/100</div>
+      </div>
+      <h2 class="video-title" id="video-title">No active YouTube video detected</h2>
+      <p class="video-channel" id="video-channel">Open a YouTube video to see AI intelligence</p>
+
+      <!-- Score Breakdown Bars -->
+      <div class="breakdown-grid" id="breakdown-grid" style="display: none;">
+        <div class="breakdown-item">
+          <div class="breakdown-labels">
+            <span>📚 Educational</span>
+            <span id="edu-val">0%</span>
+          </div>
+          <div class="progress-track"><div class="progress-bar edu" id="edu-bar"></div></div>
+        </div>
+        <div class="breakdown-item">
+          <div class="breakdown-labels">
+            <span>🎯 Career Rel.</span>
+            <span id="car-val">0%</span>
+          </div>
+          <div class="progress-track"><div class="progress-bar car" id="car-bar"></div></div>
+        </div>
+        <div class="breakdown-item">
+          <div class="breakdown-labels">
+            <span>🍿 Leisure</span>
+            <span id="ent-val">0%</span>
+          </div>
+          <div class="progress-track"><div class="progress-bar ent" id="ent-bar"></div></div>
+        </div>
+      </div>
+
+      <div class="alignment-reason" id="alignment-reason" style="display: none;"></div>
+    </section>
+
+    <!-- Quick Intent Logger -->
+    <section class="card intent-card">
+      <label class="section-label" for="intent-input">🎯 Today's Goal / Session Intent</label>
+      <div class="intent-row">
+        <input type="text" id="intent-input" class="intent-input" placeholder="e.g. Study DSA for 1 hour" />
+        <button id="set-intent-btn" class="btn btn-primary">Set</button>
+      </div>
+      <div class="active-intent-display" id="active-intent-display">
+        Current: <strong id="active-intent-text">Placement Preparation</strong>
+      </div>
+    </section>
+
+    <!-- Live Category Limits Tally -->
+    <section class="card budget-card">
+      <div class="section-header">
+        <span class="section-label">⏱️ Category Limits Today</span>
+        <span class="total-watch" id="total-watch-text">0m watched</span>
+      </div>
+      <div class="budget-meters" id="budget-meters">
+        <!-- Injected dynamically -->
+      </div>
+    </section>
+
+    <!-- Actions -->
+    <div class="actions-row">
+      <button class="btn btn-accent" id="open-sidepanel-btn">
+        💬 Ask AI Advisor (Side Panel)
+      </button>
+      <button class="btn btn-secondary" id="open-dashboard-btn">
+        📊 Analytics Dashboard
+      </button>
+    </div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

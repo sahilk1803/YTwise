@@ -1,0 +1,257 @@
+/* YouTubeWise Content Script Overlay Styles */
+
+#youtubewise-hud-container {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 999999;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
+  pointer-events: auto;
+  user-select: none;
+}
+
+/* Floating Pill */
+.ytw-badge-pill {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(15, 23, 42, 0.88);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.4), 0 8px 10px -6px rgba(0, 0, 0, 0.3);
+  padding: 8px 14px;
+  border-radius: 9999px;
+  color: #F8FAFC;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.ytw-badge-pill:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 28px -4px rgba(0, 0, 0, 0.5);
+  border-color: rgba(99, 102, 241, 0.5);
+}
+
+.ytw-score-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  box-shadow: 0 0 8px currentColor;
+}
+
+.ytw-score-dot.high {
+  background-color: #10B981;
+  color: #10B981;
+}
+
+.ytw-score-dot.moderate {
+  background-color: #F59E0B;
+  color: #F59E0B;
+}
+
+.ytw-score-dot.low {
+  background-color: #EF4444;
+  color: #EF4444;
+}
+
+.ytw-category-badge {
+  background: rgba(255, 255, 255, 0.12);
+  padding: 2px 8px;
+  border-radius: 6px;
+  font-size: 11px;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: #E2E8F0;
+}
+
+/* Expanded Card Drawer */
+.ytw-expanded-card {
+  width: 320px;
+  background: rgba(15, 23, 42, 0.94);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 16px;
+  padding: 16px;
+  color: #F8FAFC;
+  box-shadow: 0 20px 35px -8px rgba(0, 0, 0, 0.6);
+  animation: ytwFadeSlideIn 0.25s ease-out;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+@keyframes ytwFadeSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.ytw-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 8px;
+}
+
+.ytw-card-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: #6366F1;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.ytw-card-close {
+  background: none;
+  border: none;
+  color: #94A3B8;
+  font-size: 18px;
+  cursor: pointer;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.ytw-card-close:hover {
+  color: #FFFFFF;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.ytw-metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px;
+  text-align: center;
+}
+
+.ytw-metric-box {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  padding: 6px 4px;
+}
+
+.ytw-metric-label {
+  font-size: 10px;
+  color: #94A3B8;
+}
+
+.ytw-metric-val {
+  font-size: 13px;
+  font-weight: 700;
+  color: #F8FAFC;
+  margin-top: 2px;
+}
+
+.ytw-takeaways-list {
+  font-size: 11.5px;
+  color: #CBD5E1;
+  line-height: 1.4;
+  margin: 0;
+  padding-left: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.ytw-btn-row {
+  display: flex;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.ytw-btn {
+  flex: 1;
+  padding: 7px 10px;
+  border-radius: 8px;
+  border: none;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  transition: all 0.2s;
+}
+
+.ytw-btn-primary {
+  background: linear-gradient(135deg, #6366F1 0%, #4F46E5 100%);
+  color: #FFFFFF;
+}
+
+.ytw-btn-primary:hover {
+  background: linear-gradient(135deg, #4F46E5 0%, #4338CA 100%);
+}
+
+.ytw-btn-secondary {
+  background: rgba(255, 255, 255, 0.1);
+  color: #E2E8F0;
+}
+
+.ytw-btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Limit Warning Intervention Modal */
+#youtubewise-intervention-modal {
+  position: fixed;
+  top: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000000;
+  width: 480px;
+  background: rgba(15, 23, 42, 0.96);
+  backdrop-filter: blur(20px);
+  border: 2px solid #EF4444;
+  border-radius: 18px;
+  padding: 20px;
+  color: #F8FAFC;
+  box-shadow: 0 25px 50px -12px rgba(239, 68, 68, 0.35);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  animation: ytwModalDrop 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes ytwModalDrop {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -20px);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
+
+.ytw-modal-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 16px;
+  font-weight: 700;
+  color: #EF4444;
+}
+
+.ytw-modal-body {
+  margin: 12px 0 16px 0;
+  font-size: 13.5px;
+  color: #E2E8F0;
+  line-height: 1.5;
+}
+
+.ytw-modal-actions {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+}

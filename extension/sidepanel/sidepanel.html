@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>YouTubeWise Companion</title>
+  <link rel="stylesheet" href="sidepanel.css" />
+</head>
+<body>
+  <div class="sidepanel-container">
+    <!-- Header -->
+    <header class="sp-header">
+      <div class="sp-brand">
+        <span class="sp-logo">🧠</span>
+        <div>
+          <h1 class="sp-title">YouTubeWise</h1>
+          <span class="sp-tagline">AI Content Companion</span>
+        </div>
+      </div>
+      <button class="sp-icon-btn" id="open-dashboard-top" title="Open Full Analytics Dashboard">
+        📊
+      </button>
+    </header>
+
+    <!-- Navigation Tabs -->
+    <nav class="sp-tabs">
+      <button class="sp-tab active" data-tab="tab-intelligence">Video Intel</button>
+      <button class="sp-tab" data-tab="tab-chat">AI Advisor</button>
+      <button class="sp-tab" data-tab="tab-wellbeing">Wellbeing</button>
+      <button class="sp-tab" data-tab="tab-settings">Goals</button>
+    </nav>
+
+    <!-- Tab 1: Video Intelligence -->
+    <main class="sp-tab-content active" id="tab-intelligence">
+      <div class="sp-card" id="sp-video-intel-card">
+        <div class="sp-badge-row">
+          <span class="sp-category-tag" id="sp-cat-tag">Scanning...</span>
+          <span class="sp-band-tag" id="sp-band-tag">--</span>
+        </div>
+
+        <h2 class="sp-video-title" id="sp-video-title">No video currently active</h2>
+        <p class="sp-video-channel" id="sp-video-channel">Navigate to any YouTube video to analyze its usefulness.</p>
+
+        <!-- Score Hero -->
+        <div class="sp-score-hero">
+          <div class="sp-score-circle" id="sp-score-circle">
+            <span class="sp-score-num" id="sp-score-num">--</span>
+            <span class="sp-score-label">VALUE SCORE</span>
+          </div>
+          <div class="sp-score-meta">
+            <div class="sp-meta-item">
+              <span class="sp-meta-label">📚 Educational</span>
+              <strong id="sp-edu-val">--%</strong>
+            </div>
+            <div class="sp-meta-item">
+              <span class="sp-meta-label">🎯 Career Rel.</span>
+              <strong id="sp-car-val">--%</strong>
+            </div>
+            <div class="sp-meta-item">
+              <span class="sp-meta-label">🍿 Entertainment</span>
+              <strong id="sp-ent-val">--%</strong>
+            </div>
+          </div>
+        </div>
+
+        <!-- Goal Alignment Note -->
+        <div class="sp-section-box">
+          <div class="sp-box-title">🎯 Goal Alignment</div>
+          <p class="sp-box-text" id="sp-alignment-text">Classification evaluated against your primary goal.</p>
+        </div>
+
+        <!-- Key Takeaways -->
+        <div class="sp-section-box">
+          <div class="sp-box-title">💡 Key Takeaways</div>
+          <ul class="sp-takeaways" id="sp-takeaways-list">
+            <li>Open a video to view key points.</li>
+          </ul>
+        </div>
+      </div>
+    </main>
+
+    <!-- Tab 2: AI Advisor Chatbot -->
+    <main class="sp-tab-content" id="tab-chat">
+      <div class="chat-container">
+        <!-- Quick Prompt Chips -->
+        <div class="quick-chips-scroll">
+          <button class="chip-btn" data-query="Should I watch this video or skip it?">🤔 Should I watch this?</button>
+          <button class="chip-btn" data-query="Is this video useful for my placement prep?">🎯 Placement relevance?</button>
+          <button class="chip-btn" data-query="Give me a 3-bullet summary of key concepts.">📝 Key concepts summary</button>
+          <button class="chip-btn" data-query="How much time do I have left in my leisure budget?">⏱️ Check remaining budget</button>
+        </div>
+
+        <!-- Chat Message Feed -->
+        <div class="chat-messages" id="chat-messages">
+          <div class="chat-bubble bot-bubble">
+            <div class="bubble-header">
+              <span class="bot-name">🧠 YouTubeWise Advisor</span>
+            </div>
+            <p>Ask me anything about the currently playing video, its relevance to your goals, or your daily watch limits!</p>
+          </div>
+        </div>
+
+        <!-- Chat Input -->
+        <div class="chat-input-row">
+          <input type="text" id="chat-input" class="chat-input" placeholder="Ask about this video or your goals..." />
+          <button id="send-chat-btn" class="chat-send-btn">➤</button>
+        </div>
+      </div>
+    </main>
+
+    <!-- Tab 3: Digital Wellbeing & Intent -->
+    <main class="sp-tab-content" id="tab-wellbeing">
+      <div class="sp-card">
+        <h3 class="sp-card-heading">🎯 Session Intent & Focus</h3>
+        <div class="sp-intent-box">
+          <input type="text" id="sp-intent-input" class="sp-input" placeholder="e.g. Master DP algorithms for 45m" />
+          <button class="sp-btn sp-btn-primary" id="sp-set-intent-btn">Update Intent</button>
+        </div>
+        <div class="current-intent-badge" id="sp-current-intent-display">
+          Active: <strong>Placement Preparation</strong>
+        </div>
+      </div>
+
+      <div class="sp-card">
+        <div class="sp-card-header-flex">
+          <h3 class="sp-card-heading">⏱️ Category Daily Limits</h3>
+          <span class="sp-total-pill" id="sp-total-time-pill">0m Total</span>
+        </div>
+        <div class="sp-meters-list" id="sp-meters-list">
+          <!-- Dynamic Category Meters -->
+        </div>
+      </div>
+    </main>
+
+    <!-- Tab 4: Goals & Settings -->
+    <main class="sp-tab-content" id="tab-settings">
+      <div class="sp-card">
+        <h3 class="sp-card-heading">🎯 Your Target & Goals</h3>
+        <div class="setting-group">
+          <label class="setting-label">Primary Goal</label>
+          <input type="text" id="goal-primary-input" class="sp-input" value="Placement Preparation (DSA, AI/ML, System Design)" />
+        </div>
+        <div class="setting-group">
+          <label class="setting-label">Target Learning Topics (comma-separated)</label>
+          <input type="text" id="goal-topics-input" class="sp-input" value="DSA, Machine Learning, System Design, Python, Web Development" />
+        </div>
+        <div class="setting-group">
+          <label class="setting-label">Daily Total YouTube Budget (minutes)</label>
+          <input type="number" id="goal-budget-input" class="sp-input" value="120" />
+        </div>
+        <div class="setting-group">
+          <label class="setting-label">Entertainment Limit (minutes/day)</label>
+          <input type="number" id="goal-ent-limit-input" class="sp-input" value="25" />
+        </div>
+        <button class="sp-btn sp-btn-primary" id="save-goals-btn">Save Profile & Goals</button>
+        <span class="save-status" id="save-goals-status"></span>
+      </div>
+    </main>
+  </div>
+
+  <script src="sidepanel.js"></script>
+</body>
+</html>
